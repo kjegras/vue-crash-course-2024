@@ -1,24 +1,24 @@
 <script setup>
-import { RouterLink } from 'vue-router';
-import { defineProps, ref, computed } from 'vue';
+import { RouterLink } from 'vue-router'
+import { defineProps, ref, computed } from 'vue'
 
 const props = defineProps({
   job: Object,
-});
+})
 
-const showFullDescription = ref(false);
+const showFullDescription = ref(false)
 
 const toggleFullDescription = () => {
-  showFullDescription.value = !showFullDescription.value;
-};
+  showFullDescription.value = !showFullDescription.value
+}
 
 const truncatedDescription = computed(() => {
-  let description = props.job.description;
+  let description = props.job.description
   if (!showFullDescription.value) {
-    description = description.substring(0, 90) + '...';
+    description = description.substring(0, 90) + '...'
   }
-  return description;
-});
+  return description
+})
 </script>
 
 <template>
@@ -54,7 +54,7 @@ const truncatedDescription = computed(() => {
           :to="'/jobs/' + job.id"
           class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-center text-sm"
         >
-          Read More
+          Know More
         </RouterLink>
       </div>
     </div>
